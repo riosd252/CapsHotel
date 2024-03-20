@@ -1,4 +1,4 @@
-package DavidRios.CapsHotel.components;
+package DavidRios.CapsHotel.services;
 
 import DavidRios.CapsHotel.entities.RoomType;
 import DavidRios.CapsHotel.repositories.RoomTypeRepo;
