@@ -37,4 +37,8 @@ public class Booking {
         this.specialRequests = specialRequests;
         this.prepaid = prepaid;
     }
+
+    public boolean isOverlap(LocalDate checkInDate, LocalDate checkOutDate) {
+        return this.getCheckOut().isAfter(checkInDate) && this.getCheckIn().isBefore(checkOutDate);
+    }
 }
