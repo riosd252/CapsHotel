@@ -31,6 +31,8 @@ public class RoomType {
     private List<Amenity> amenities;
     @OneToMany(mappedBy = "roomType")
     private List<Rate> rates;
+    @OneToMany(mappedBy = "roomType")
+    private List<Room> rooms;
 
     public RoomType(String denomination, String description) {
         this.denomination = denomination;
