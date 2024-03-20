@@ -22,6 +22,13 @@ public class RoomType {
     private String description;
     @OneToMany(mappedBy = "roomType")
     private List<RoomTypePhoto> photos;
+    @ManyToMany
+    @JoinTable(
+            name = "room_type_amenity",
+            joinColumns = @JoinColumn(name = "room_type_id"),
+            inverseJoinColumns = @JoinColumn(name = "amenity_id")
+    )
+    private List<Amenity> amenities;
 
     public RoomType(String denomination, String description) {
         this.denomination = denomination;
