@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,6 +24,8 @@ public class User {
     private String email;
     private String password;
     private String avatar;
+    @OneToMany(mappedBy = "user")
+    private List<Booking> bookings;
 
     public User(String name, String surname, String email, String password) {
         this.name = name;

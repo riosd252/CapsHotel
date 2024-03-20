@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "rooms")
 @NoArgsConstructor
@@ -21,6 +23,8 @@ public class Room {
     private RoomType roomType;
     private int roomNumber;
     private int capacity;
+    @OneToMany(mappedBy = "room")
+    private List<Booking> bookings;
 
     public Room(RoomType roomType, int roomNumber, int capacity) {
         this.roomType = roomType;
