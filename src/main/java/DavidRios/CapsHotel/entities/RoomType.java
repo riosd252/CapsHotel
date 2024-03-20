@@ -29,6 +29,8 @@ public class RoomType {
             inverseJoinColumns = @JoinColumn(name = "amenity_id")
     )
     private List<Amenity> amenities;
+    @OneToMany(mappedBy = "roomType")
+    private List<Rate> rates;
 
     public RoomType(String denomination, String description) {
         this.denomination = denomination;
