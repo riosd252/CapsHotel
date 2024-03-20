@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -31,11 +32,24 @@ public class RoomType {
     private List<Amenity> amenities;
     @OneToMany(mappedBy = "roomType")
     private List<Rate> rates;
-    @OneToMany(mappedBy = "roomType")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "roomType")
     private List<Room> rooms;
 
     public RoomType(String denomination, String description) {
         this.denomination = denomination;
         this.description = description;
+    }
+
+    public boolean isRoomTypeAvailable(int occupants, LocalDate checkInDate, LocalDate checkOutDate) {
+
+        List<Room> rooms = this.getRooms();
+
+
+        for (Room room : rooms) {
+            if (room.isRoomAvailable(occupants, checkInDate, checkOutDate)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
