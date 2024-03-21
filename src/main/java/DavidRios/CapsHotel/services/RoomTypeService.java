@@ -1,6 +1,7 @@
 package DavidRios.CapsHotel.services;
 
 import DavidRios.CapsHotel.entities.RoomType;
+import DavidRios.CapsHotel.exceptions.NotFoundException;
 import DavidRios.CapsHotel.repositories.RoomTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,10 @@ public class RoomTypeService {
 
     public List<RoomType> getRoomTypes() {
         return this.roomTypeRepo.findAll();
+    }
+
+    public RoomType findById(long id) {
+        return roomTypeRepo.findById(id).orElseThrow(() -> new NotFoundException("Room type " + id + " was not found."));
     }
 
     public Page<RoomType> getAvailableRoomTypes(int occupants, LocalDate checkInDate, LocalDate checkOutDate, int page, int size) {
