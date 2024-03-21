@@ -21,7 +21,7 @@ public class RoomType {
     private long id;
     private String denomination;
     private String description;
-    @OneToMany(mappedBy = "roomType")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "roomType")
     private List<RoomTypePhoto> photos;
     @ManyToMany
     @JoinTable(
