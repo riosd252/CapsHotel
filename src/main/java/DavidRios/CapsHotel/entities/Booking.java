@@ -27,9 +27,9 @@ public class Booking {
     private LocalDate checkIn;
     private LocalDate checkOut;
     private String specialRequests;
-    private Boolean prepaid;
+    private boolean prepaid;
 
-    public Booking(User user, Room room, LocalDate checkIn, LocalDate checkOut, String specialRequests, Boolean prepaid) {
+    public Booking(User user, Room room, LocalDate checkIn, LocalDate checkOut, String specialRequests, boolean prepaid) {
         this.user = user;
         this.room = room;
         this.checkIn = checkIn;
