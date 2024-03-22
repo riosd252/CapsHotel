@@ -1,5 +1,6 @@
 package DavidRios.CapsHotel.entities;
 
+import DavidRios.CapsHotel.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class User {
     private String email;
     private String password;
     private String avatar;
+    private UserRole role;
     @OneToMany(mappedBy = "user")
     private List<Booking> bookings;
 
