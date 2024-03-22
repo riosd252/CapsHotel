@@ -40,4 +40,8 @@ public class Room {
         }
         return this.getCapacity() >= occupants;
     }
+
+    public void addBooking(Booking booking) {
+        this.bookings.add(booking);
+    }
 }
